@@ -119,13 +119,14 @@ def checkbox2(data):
     arr4 = data.code_departement
     fig4, ax = plt.subplots()
     ax.hist(arr4, bins=100, range=(0,96),orientation='horizontal')
-    ax.set_title('Fréquence des ventes par départements')
+    ax.set_title('Montant des ventes par départements')
     ax.set_yticklabels(options, fontsize=3)
 
     ax.set_ylabel("some label", fontsize=5)
     ax.set_ylabel('département')
 
-    if st.checkbox('Fréquence des ventes par départements'):
+    if st.checkbox('Montant des ventes par départements'):
+        st.write("Vous pouvez voir grâce à cet histogramme le montant des ventes en fonction du département")
         st.pyplot(fig4)
 #------------------------------------
 def graph1(df, col1, col2):
@@ -176,10 +177,11 @@ def option(arg):
     if option == choice[0]:
 
         st.title('Présentation générale')
+        st.write("Vous trouverez sur cette page de nombreuses informations sur les transactions immobilières en France, bonne visite!")
         st.subheader("Introduction aux transactions immobilières en France")
         checkbox1(datas)
         checkbox2(datas)
-        st.subheader('Graphique du prix du bien selon sa surface')
+        st.subheader("Graphique du prix d'un selon sa surface")
         choix_type = select_type()
         df5 = func1(datas, 'type_local', choix_type)
         x = df5['surface_reelle_bati']
@@ -243,6 +245,7 @@ def option(arg):
         
     elif option == choice[2]:
         st.title('Carte des transactions immobilières')
+        st.write("Vous pouvez voir ci-dessous la location de l'ensemble des transactions immobilières en France par mois")
         data_map['lon'] = datas['longitude']
         data_map['lat'] = datas['latitude']
         

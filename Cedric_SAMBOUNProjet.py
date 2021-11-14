@@ -90,18 +90,18 @@ def read_csv():
 
 @log
 def prepare_map(df):
-    map_data = df[["latitude","longitude","months"]].sample(frac=0.0033)
-    map_data.dropna(subset = ["latitude"], inplace=True)
-    map_data.dropna(subset = ["longitude"], inplace=True)
-    return map_data
+    map1 = df[["latitude","longitude","months"]].samplecsv(frac=0.0033)
+    map1.dropna(subset = ["latitude"], inplace=True)
+    map1.dropna(subset = ["longitude"], inplace=True)
+    return map1
 
 @log
 def map(df):
     st.subheader("Carte des transactions immobilières par mois")
-    map_data=prepare_map(df)
+    map1=prepare_map(df)
     months_filter = st.slider('Choisir un mois', 0, 12,3) 
-    map_data_filtered = map_data[map_data["months"] == months_filter] 
-    st.map(map_data_filtered,zoom=2)
+    map1_filtered = map1[map1["months"] == months_filter] 
+    st.map(map1_filtered,zoom=2)
 datas = read_csv()
 
 data_map = pd.DataFrame()
@@ -165,7 +165,7 @@ choice = choix('Présentation générale','Présentation par département','Cart
 
 df= pd.read_csv('full_2020.csv',nrows=1000000)
 @log
-def maskega(nom,valeur2):
+def mask1(nom,valeur2):
     return df.mask(df[nom]!=valeur2)
 
 def option(arg):
@@ -202,18 +202,18 @@ def option(arg):
         
 
         datas2=datas.dropna()
-        df2 = datas2.groupby(['nature_culture', 'type_local']).apply(count_rows).unstack()
-        sns.heatmap(df2, linewidths = 1)
+        dataf1 = datas2.groupby(['nature_culture', 'type_local']).apply(count_rows).unstack()
+        sns.heatmap(dataf1, linewidths = 1)
         st.pyplot()   
         
     elif option == choice[1]:
         st.title('Présentation par département')
         choix_depart = datas['code_departement'].unique().tolist()
         depart=st.selectbox('Sélectionner un département', choix_depart, 0)
-        df4=datas[datas['code_departement']==depart]
-        st.write(df4.describe())
+        dataf2=datas[datas['code_departement']==depart]
+        st.write(dataf2.describe())
         choix_type = select_type()
-        df5 = func1(df4, 'type_local', choix_type)
+        df5 = func1(dataf2, 'type_local', choix_type)
         x = df5['surface_reelle_bati']
         y = df5['valeur_fonciere']
         compare = pd.concat([x, y], axis=1)
@@ -223,16 +223,16 @@ def option(arg):
         ax.plot(compare,color="blue")
         st.pyplot(fig1)
         
-        if st.checkbox("par departement?"):
-         departement_selected= st.slider("departement",1,95)
-         df_map = maskega("code_departement",departement_selected)
+        if st.checkbox("Cocher pour sélectionner un département"):
+         departement_selected= st.slider("Choisir un département",1,95)
+         map_df = mask1("code_departement",departement_selected)
         else:
    
-             df_map = df
+             map_df = df
     
-        df_map.dropna(subset = ["latitude"], inplace = True)
-        df_map.dropna(subset = ["longitude"], inplace = True)
-        st.map(df_map)
+        map_df.dropna(subset = ["latitude"], inplace = True)
+        map_df.dropna(subset = ["longitude"], inplace = True)
+        st.map(map_df)
     
         
 
@@ -241,8 +241,8 @@ def option(arg):
         st.title('Carte des transactions immobilières')
         data_map['lon'] = datas['longitude']
         data_map['lat'] = datas['latitude']
-        sample = data_map.sample(n=100000)
-        st.write(sample)
+        samplecsv = data_map.samplecsv(n=100000)
+        st.write(samplecsv)
         map(datas)
 
     

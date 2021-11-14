@@ -205,6 +205,7 @@ def option(arg):
 
         datas2=datas.dropna()
         dataf1 = datas2.groupby(['nature_culture', 'type_local']).apply(count_rows).unstack()
+        st.write("Vous pouvez voir grâce à cette heatmap la fréquence des types de cultures en fonction du type de local.")
         sns.heatmap(dataf1, linewidths = 1)
         st.pyplot()   
         

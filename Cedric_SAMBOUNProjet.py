@@ -90,7 +90,7 @@ def read_csv():
 
 @log
 def prepare_map(df):
-    map1 = df[["latitude","longitude","months"]].samplecsv(frac=0.0033)
+    map1 = df[["latitude","longitude","months"]]
     map1.dropna(subset = ["latitude"], inplace=True)
     map1.dropna(subset = ["longitude"], inplace=True)
     return map1

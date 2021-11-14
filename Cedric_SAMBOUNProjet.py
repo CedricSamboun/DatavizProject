@@ -163,7 +163,7 @@ choice = choix('Présentation générale','Présentation par département','Cart
 
 
 
-df= pd.read_csv('full_2020.csv',nrows=1000000)
+df= pd.read_csv('full_2020.csv')
 @log
 def mask1(nom,valeur2):
     return df.mask(df[nom]!=valeur2)

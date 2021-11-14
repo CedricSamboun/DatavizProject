@@ -126,7 +126,7 @@ def checkbox2(data):
     ax.set_ylabel('département')
 
     if st.checkbox('Montant des ventes par départements'):
-        st.write("Vous pouvez voir grâce à cet histogramme le montant des ventes en fonction du département")
+        st.write("Vous pouvez voir grâce à cet histogramme le montant des ventes en fonction du département.")
         st.pyplot(fig4)
 #------------------------------------
 def graph1(df, col1, col2):
@@ -245,7 +245,7 @@ def option(arg):
         
     elif option == choice[2]:
         st.title('Carte des transactions immobilières')
-        st.write("Vous pouvez voir ci-dessous la location de l'ensemble des transactions immobilières en France par mois")
+        st.write("Vous pouvez voir ci-dessous la location de l'ensemble des transactions immobilières en France par mois.")
         data_map['lon'] = datas['longitude']
         data_map['lat'] = datas['latitude']
         

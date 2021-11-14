@@ -177,7 +177,7 @@ def option(arg):
     if option == choice[0]:
 
         st.title('Présentation générale')
-        st.write("Vous trouverez sur cette page de nombreuses informations sur les transactions immobilières en France, bonne visite!")
+        st.write("Vous trouverez sur ce site de nombreuses informations sur les transactions immobilières en France, bonne visite!")
         st.subheader("Introduction aux transactions immobilières en France")
         checkbox1(datas)
         checkbox2(datas)

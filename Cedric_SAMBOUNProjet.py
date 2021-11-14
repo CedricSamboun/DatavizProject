@@ -243,7 +243,7 @@ def option(arg):
         data_map['lon'] = datas['longitude']
         data_map['lat'] = datas['latitude']
         
-        st.write("full_2020.csv")
+        
         map(datas)
 
     

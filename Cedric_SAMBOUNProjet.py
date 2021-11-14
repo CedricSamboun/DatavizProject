@@ -223,6 +223,7 @@ def option(arg):
         ax.plot(compare,color="blue")
         st.pyplot(fig1)
         
+        st.subheader("Carte des transactions immobilières par département")
         if st.checkbox("Cocher pour sélectionner un département"):
          departement_selected= st.slider("Choisir un département",1,95)
          map_df = mask1("code_departement",departement_selected)

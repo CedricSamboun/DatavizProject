@@ -230,7 +230,7 @@ def option(arg):
         
         st.subheader("Carte des transactions immobilières par département")
         if st.checkbox("Cocher pour sélectionner un département"):
-         st.write("Vous pouvez voir ici le location de l'ensemble des transactions immobilières en France par département.")
+         st.write("Vous pouvez voir ici la localisation de l'ensemble des transactions immobilières en France par département.")
          departement_selected= st.slider("Choisir un département",1,95)
          map_df = mask1("code_departement",departement_selected)
         else:
@@ -246,7 +246,7 @@ def option(arg):
         
     elif option == choice[2]:
         st.title('Carte des transactions immobilières')
-        st.write("Vous pouvez voir ci-dessous la location de l'ensemble des transactions immobilières en France par mois.")
+        st.write("Vous pouvez voir ci-dessous la localisation de l'ensemble des transactions immobilières en France par mois.")
         data_map['lon'] = datas['longitude']
         data_map['lat'] = datas['latitude']
         

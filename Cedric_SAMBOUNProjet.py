@@ -207,13 +207,14 @@ def option(arg):
         st.pyplot()   
         
     elif option == choice[1]:
-        st.write("Voici ci-dessous un tableau, veuillez choisir un département afin d'obtenir diverses informations statistiques sur celui-ci")
+        
         st.title('Présentation par département')
+        st.write("Voici ci-dessous un tableau, veuillez choisir un département afin d'obtenir diverses informations statistiques sur celui-ci.")
         choix_depart = datas['code_departement'].unique().tolist()
         depart=st.selectbox('Sélectionner un département', choix_depart, 0)
         dataf2=datas[datas['code_departement']==depart]
         st.write(dataf2.describe())
-        st.write("Vous pouvez voir ci-dessous un graphique représentant le prix d'un bien en fonction de sa surface")
+        st.write("Vous pouvez voir ci-dessous un graphique représentant le prix d'un bien en fonction de sa surface.")
         choix_type = select_type()
         df5 = func1(dataf2, 'type_local', choix_type)
         x = df5['surface_reelle_bati']

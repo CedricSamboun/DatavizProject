@@ -242,8 +242,8 @@ def option(arg):
         st.title('Carte des transactions immobilières')
         data_map['lon'] = datas['longitude']
         data_map['lat'] = datas['latitude']
-        samplecsv = data_map.samplecsv(n=100000)
-        st.write(samplecsv)
+        
+        st.write("full_2020.csv")
         map(datas)
 
     
